@@ -7,9 +7,9 @@
     <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="css/leaflet.css">
-    <link rel="stylesheet" href="css/qgis2web.css">
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="leaflet.css">
+    <link rel="stylesheet" href="qgis2web.css">
+    <link rel="stylesheet" href="fontawesome-all.min.css">
     <!-- Ajoutez la ligne suivante pour inclure jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
@@ -44,6 +44,10 @@
             border: 1px solid #ccc;
             z-index: 1001;
         }
+        #filter-icon img {
+            width: 24px; /* Ajustez la largeur de l'image selon vos besoins */
+            height: 24px; /* Ajustez la hauteur de l'image selon vos besoins */
+        }
     </style>
     <title></title>
 </head>
@@ -55,7 +59,7 @@
 
     <!-- Ajoutez une icône d'entonnoir pour afficher/masquer les filtres -->
     <div id="filter-icon">
-        <i class="fas fa-filter"></i>
+        <img src="filter-alt-regular-24.png" alt="Filtrer">
     </div>
 
     <div id="filter-controls">
@@ -82,18 +86,18 @@
         </label>
     </div>
 
-    <script src="js/qgis2web_expressions.js"></script>
-    <script src="js/leaflet.js"></script>
-    <script src="js/leaflet.rotatedMarker.js"></script>
-    <script src="js/leaflet.pattern.js"></script>
-    <script src="js/leaflet-hash.js"></script>
-    <script src="js/Autolinker.min.js"></script>
-    <script src="js/rbush.min.js"></script>
-    <script src="js/labelgun.min.js"></script>
-    <script src="js/labels.js"></script>
-    <script src="js/leaflet.control.scale.js"></script>
-    <script src="data/DA_REGIONS_12R_1.js"></script>
-    <script src="data/ports_maroc_2.js"></script>
+    <script src="qgis2web_expressions.js"></script>
+    <script src="leaflet.js"></script>
+    <script src="leaflet.rotatedMarker.js"></script>
+    <script src="leaflet.pattern.js"></script>
+    <script src="leaflet-hash.js"></script>
+    <script src="Autolinker.min.js"></script>
+    <script src="rbush.min.js"></script>
+    <script src="labelgun.min.js"></script>
+    <script src="labels.js"></script>
+    <script src="leaflet.control.scale.js"></script>
+    <script src="DA_REGIONS_12R_1.js"></script>
+    <script src="ports_maroc_2.js"></script>
     <script>
         $(document).ready(function () {
             // Gérez le clic sur l'icône d'entonnoir
@@ -233,26 +237,26 @@ function style_ports_maroc_2_0(feature) {
     var iconUrl;
     switch (selectedPortType) {
         case "Plaisance":
-            iconUrl = 'C:\\Users\\hp\\Desktop\\sigcarte4\\qgis2web_2024_01_12-21_07_26_087973\\plaisance 1.png'; // Remplacez par le chemin de l'icône pour Plaisance
+            iconUrl = 'plaisance 1.png'; // Remplacez par le chemin de l'icône pour Plaisance
             break;
         case "Passagers":
-            iconUrl = 'C:\\Users\\hp\\Desktop\\sigcarte4\\qgis2web_2024_01_12-21_07_26_087973\\passagers.png'; // Remplacez par le chemin de l'icône pour Passagers
+            iconUrl = 'passagers.png'; // Remplacez par le chemin de l'icône pour Passagers
             break;
         case "Commerce":
-            iconUrl = 'C:\\Users\\hp\\Desktop\\sigcarte4\\qgis2web_2024_01_12-21_07_26_087973\\commerce.png'; // Remplacez par le chemin de l'icône pour Commerce
+            iconUrl = 'commerce.png'; // Remplacez par le chemin de l'icône pour Commerce
             break;
         case "Pêche":
-            iconUrl = 'C:\\Users\\hp\\Desktop\\sigcarte4\\qgis2web_2024_01_12-21_07_26_087973\\peche.png'; // Remplacez par le chemin de l'icône pour Pêche
+            iconUrl = 'peche.png'; // Remplacez par le chemin de l'icône pour Pêche
             break;
         case "Militaire":
-            iconUrl = 'C:\\Users\\hp\\Desktop\\sigcarte4\\qgis2web_2024_01_12-21_07_26_087973\\la_marine-removebg-preview.png'; // Remplacez par le chemin de l'icône pour Militaire
+            iconUrl = 'marine.png'; // Remplacez par le chemin de l'icône pour Militaire
             break;
         case "Croisière":
-            iconUrl = 'C:\\Users\\hp\\Desktop\\sigcarte4\\qgis2web_2024_01_12-21_07_26_087973\\coisière1.png'; // Remplacez par le chemin de l'icône pour Croisière
+            iconUrl = 'coisière1.png'; // Remplacez par le chemin de l'icône pour Croisière
             break;
         default:
             // Si aucun type ne correspond, utilisez une icône par défaut
-            iconUrl = 'C:\\Users\\hp\\Desktop\\sigcarte4\\qgis2web_2024_01_12-21_07_26_087973\\port.png'; // Remplacez par le chemin de l'icône par défaut
+            iconUrl = 'port.png'; // Remplacez par le chemin de l'icône par défaut
     }
 
     var boatIcon = L.icon({
